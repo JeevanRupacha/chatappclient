@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+*{
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+.chat-body{
+    padding : 0;
+    margin : 0;
+   max-width: 570px;
+   height: 100vh;
+}
+
+
+.head h3{
+    text-align: center;
+    background: rgba(7, 56, 161, 0.849);
+    /* border-top-left-radius:10px;
+    border-top-right-radius:10px; */
+    color: rgba(87, 14, 14, 0.788);
+    height: 10vh;
+    font-size: 2rem;
+    padding-top: .5rem;
+    padding-top: .5rem;
+    padding-bottom: 1rem;
+   font-family: 'Creepster','Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.head h3 p {
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: .8rem;
+    color: #fff;
+}
+
+
+.chatting-msg{
+ 
+}
+
+
+.received-msg, .send-msg{
+    margin: 10px;
+    display: block;
+
+}
+
+.received-msg .profile{
+    height: 35px;
+    width: 35px;
+    margin-top: -5px;
+    /* background-image: linear-gradient(to right, rgba(255, 0, 0, 0.534),rgba(21, 21, 22, 0.788)); */
+    background-image: url('/assets/user.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    float: left;
+    clear: both;
+    overflow: hidden;
+}
+
+.online {
+     position: relative;
+    top: -9rem;
+    left: 0;
+    color: rgb(13, 99, 32);
+    font-size: 100px;
+}
+
+
+.offline{
+    display: none;
+}
+
+
+.received-msg .text-msg{
+    max-width: 70%;
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.562);
+    font-size: larger;
+    padding: 5px;
+    margin-left:  40px;
+    margin-top: -20px;
+    margin-bottom: 5px;
+    /* margin-top: 10px; */
+    display: block;
+    float:left;
+    clear: both;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px; 
+}
+
+.send-msg .text-msg{
+    opacity: .9;
+    display: block;
+    white-space: initial;
+    max-width: 70%;
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.562);
+    font-size: larger;
+    padding: 5px;
+    margin: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px; 
+    float: right;
+    clear: both;
+}
+
+.clearfix{zoom:1}
+.clearfix:after{
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+
+/* Update or modified laster app */
+
+/* .chat-body{
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .head{
+    flex-grow: 1;
+}
+*/
+ .chatting-msg{
+    overflow: auto;
+} 
+.chat-navbar{
+    
+    
+} 
+
+/* chat navbar  */
+.sendBtn {
+height: 1.5rem;
+background: transparent;
+border: none;
+}
+
+.typedMsg{
+   width: 90%;
+   height: 2rem;
+   margin-left: 1rem;
+   margin-right:1rem;
+   background: transparent;
+    border: none;
+    font-style: inherit;
+}
+
+.typedMsg:focus, .sendBtn:focus{
+    outline: none;
+    background: rgb(167, 164, 164);
+    
+
+}
+
+
+
+
+
+@media (max-width: 375px){
+  
+}

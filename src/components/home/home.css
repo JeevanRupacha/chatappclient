@@ -1,0 +1,68 @@
+
+.wrapper
+{
+    height: 100vh;
+    width: 100vw;
+    background: rgb(29, 28, 28);
+    text-align: center;
+}
+
+.code-container
+{
+    max-width: 250px;
+    height: 200px;
+    background: rgba(197, 195, 195, 0.815);
+    text-align: center;
+    padding: 1rem;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.code-container h4 
+{
+    margin : 1rem 0 3rem 0;
+}
+
+
+.input-code
+{
+    display: block;
+    width: 100%;
+    margin : .6rem auto;
+}
+
+.enter-btn
+{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: .2rem 0 .2rem 0;
+    border: none;
+    background: rgb(0, 174, 255);
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.enter-btn:focus
+{
+    outline: none;
+}
+
+
+.center
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
