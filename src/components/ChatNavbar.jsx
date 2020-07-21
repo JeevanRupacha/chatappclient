@@ -43,7 +43,7 @@ class ChatNavbar extends Component{
                             
                         }}>
                             <div style={{ flexGrow: "9" }}>
-                                <input value={this.state.message} type="text" className="typedMsg" id="messagetyped" placeholder="Type message here....." onChange={(event) => this.setState({ message: event.target.value })} />
+                                <input autoComplete="off" aria-autocomplete="none" value={this.state.message} type="text" className="typedMsg" id="messagetyped" placeholder="Type message here....." onChange={(event) => this.setState({ message: event.target.value })} />
                             </div>
                             <div style={{ flexGrow: "1" }}>
                                 <button className="sendBtn" type="submit" ><Icon onClick={this.submitMessage} name="chevron circle right" size="big" color="pink" /></button>

@@ -3,25 +3,28 @@ import { Input } from 'semantic-ui-react'
 import './home.css'
 import {withRouter} from 'react-router-dom'
 
-const AUTHCODE = 'code'
+const AUTHCODE = 'HacHerHack'
 
 class home extends Component {
     state = { code: '' }
 
-    
     handleButtonClick = (event) =>
     {
         if ( this.state.code !== '' && AUTHCODE === this.state.code)
         {
             this.props.history.push(`/chat?code=${this.state.code}`)  
         }
-
     }
 
     handleOnKeyPress = (event) => {
+
+        // upgrade strong pass check
         if (event.key === 'Enter' && AUTHCODE === this.state.code)
         {
             this.props.history.push(`/chat?code=${this.state.code}`)    
+        }
+        else if (event.key === 'Enter' && AUTHCODE !== this.state.code) {
+            alert("something wrong with code")
         }
     }
 

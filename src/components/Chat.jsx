@@ -3,22 +3,20 @@ import ChatNavbar from './ChatNavbar'
 import ChatBox from './ChatBox'
 import { nanoid } from 'nanoid'
 import scrollAuto from '../app/Scroll'
-import openSocket from 'socket.io-client';
+import openSocket from 'socket.io-client'
+import { Icon } from 'semantic-ui-react'
 
 const ENDPOINT = 'https://jeechatapp.herokuapp.com'
+// const ENDPOINT = 'http://localhost:8000/'
 let socket
-
-// const messages = [{ messageType: "received-msg", messageContent: "this is ghghdhfgjdshgfh received by user" },
-//         { messageType: "received-msg", messageContent: "this is message received by user" }]
-
 
 
 const Chat = () => {
-    const [messages,setMessages] = useState([])
-        // [{ messageType: "received-msg", messageContent: "this is ghghdhfgjdshgfh received by user" },
-        //     { messageType: "received-msg", messageContent: "this is message received by user" }])
-    
-    const [message, setMessage] = useState({messageContent:''})
+    const [messages, setMessages] = useState([])
+    const [spiner, setSpinner] = useState(true)
+    const [message, setMessage] = useState({ messageContent: '' })
+
+   
     
     useEffect(() => {
         socket = openSocket(ENDPOINT)
@@ -27,41 +25,40 @@ const Chat = () => {
            if(error) console.log(error) 
         })
         
-        // return () => {
-        //     socket.emit('disconnect')
-        //     socket.off()
-        // }
-        
-    },[ENDPOINT])
+    }, [ENDPOINT])
     
+
+  
 
     useEffect(() => {
 
-        socket.on('welcome-msg', (message) => {
-            console.log("welcome message ")
-            console.log( messages)
-            setMessages((messages) => [...messages, { messageType: "welcome-msg",messageContent:''}])
+        socket.on('messages', ({ databaseMessages }) => {
+            setSpinner(false)
+            //TODO stop the spinning // data load finish 
+
+            databaseMessages.forEach(element => {
+                setMessages((messages) => [...messages,{messageContent: `${element.messageContent}`, messageType: "received-msg"}])
+                
+            })
+        }
+        )
+
+        socket.on('welcome-msg', ({ }) => {
+            setMessages((messages) => [...messages, { messageType: "welcome-msg" }])
         })
         
         socket.on('returnMsg', ({message}) => {
-            console.log(typeof (message))
             const msg = message
-            console.log(msg)
             setMessages((messages) => [...messages, { messageType: "send-msg", messageContent: msg }])
 
 
         })
         socket.on('joined-msg', (message) => {
-            console.log( messages)
-            console.log("join message ")
             setMessages((messages) => [...messages, { messageType: "join-msg", messageContent: ''}])
         })
       
       
         socket.on('sendToMsg', ({message}) => {
-            console.log(typeof (message))
-            const msg = message
-            console.log(msg)
             setMessages((messages)=>[...messages, { messageType: "received-msg", messageContent: msg }])
         
         })
@@ -74,16 +71,10 @@ const Chat = () => {
 
 
     const handleSubmitMessage = (messageContent) => {
-        setMessage({ messageContent: messageContent })
-        // messages.map( message => console.log("works as " + message.messageContent))
-        
+        setMessage({ messageContent: messageContent })        
         socket.emit('sendMessage', messageContent, ()=> setMessage(''))
         scrollAuto('chatting-msg')
     }
-
- 
-
-    
 
         return (
             <div style = {{maxWidth: "500px", margin:"0 auto"}}>
@@ -96,7 +87,14 @@ const Chat = () => {
                     backgroundSize: "cover",
                     paddingBottom: "50px"
                 }}> 
-                    {messages.map(messageObj => <ChatBox key={nanoid()} message={messageObj} /> )}
+                {
+                    (spiner) ?  
+                    <div className="center"> 
+                    <Icon loading name='spinner' color='red' size="huge" />
+                    </div>  :
+                    (messages.map(messageObj => <ChatBox key={nanoid()} message={messageObj} />))           
+                    
+                }
                     
                 </div>
                 

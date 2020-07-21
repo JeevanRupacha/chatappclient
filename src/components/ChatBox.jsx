@@ -24,13 +24,13 @@ class ChatBox extends Component {
 
             {messageType === "welcome-msg" &&
                 <p style={{
-                    textAlign: "center", color: "rgb(224, 121, 121)",fontSize: "1rem",fontStyle:"italic", margin: "5px"}}
-                >Welcome to this confession Chat</p>}
+                    textAlign: "center", color: "rgba(224, 121, 121, 0.863)",fontSize: "1rem",fontStyle:"italic", margin: "5px"}}
+                >Welcome to this Chat group</p>}
             
             { messageType === "join-msg" &&
                 <div>
                     <div ><p style={{
-                        display: "block", textAlign: "center", color: "rgb(224, 121, 121)",fontSize: "1rem",fontStyle:"italic", margin: "5px"
+                        display: "block", textAlign: "center", color: "rgba(224, 121, 121, 0.863)",fontSize: "1rem",fontStyle:"italic", margin: "5px"
                     }}>New user joined !</p></div>
                 </div>
             }
@@ -38,7 +38,7 @@ class ChatBox extends Component {
             { messageType === "leave-msg" &&
             <div >
                 <div><p style={{
-                    textAlign: "center", color: "rgb(224, 121, 121)",fontSize: "1rem",fontStyle:"italic", margin: "5px"
+                    textAlign: "center", color: "rgba(224, 121, 121, 0.863)",fontSize: "1rem",fontStyle:"italic", margin: "5px"
                 }}>One uesr left </p></div>
             </div>
             }
