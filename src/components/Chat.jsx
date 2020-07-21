@@ -58,7 +58,8 @@ const Chat = () => {
         })
       
       
-        socket.on('sendToMsg', ({message}) => {
+        socket.on('sendToMsg', ({ message }) => {
+            const msg = message
             setMessages((messages)=>[...messages, { messageType: "received-msg", messageContent: msg }])
         
         })
