@@ -6,7 +6,7 @@ import scrollAuto from '../app/Scroll'
 import openSocket from 'socket.io-client'
 import { Icon } from 'semantic-ui-react'
 
-const ENDPOINT = 'https://jeechatapp.herokuapp.com'
+const ENDPOINT = 'https://jeechatapp.herokuapp.com/'
 // const ENDPOINT = 'http://localhost:8000/'
 let socket
 
@@ -17,6 +17,9 @@ const Chat = () => {
     const [message, setMessage] = useState({ messageContent: '' })
 
    
+    useEffect(() => {
+        scrollAuto('chatting-msg')
+    })
     
     useEffect(() => {
         socket = openSocket(ENDPOINT)
@@ -35,11 +38,12 @@ const Chat = () => {
         socket.on('messages', ({ databaseMessages }) => {
             setSpinner(false)
             //TODO stop the spinning // data load finish 
-
+            
             databaseMessages.forEach(element => {
                 setMessages((messages) => [...messages,{messageContent: `${element.messageContent}`, messageType: "received-msg"}])
                 
             })
+            scrollAuto('chatting-msg')
         }
         )
 
@@ -50,6 +54,7 @@ const Chat = () => {
         socket.on('returnMsg', ({message}) => {
             const msg = message
             setMessages((messages) => [...messages, { messageType: "send-msg", messageContent: msg }])
+            scrollAuto('chatting-msg')
 
 
         })
