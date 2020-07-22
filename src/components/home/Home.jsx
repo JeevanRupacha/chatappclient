@@ -10,9 +10,13 @@ class home extends Component {
 
     handleButtonClick = (event) =>
     {
-        if ( this.state.code !== '' && AUTHCODE === this.state.code)
+            if ( this.state.code !== '' && AUTHCODE === this.state.code)
         {
             this.props.history.push(`/chat?code=${this.state.code}`)  
+        }
+
+        else {
+            alert("Something wrong with pass CODE")
         }
     }
 
@@ -24,7 +28,7 @@ class home extends Component {
             this.props.history.push(`/chat?code=${this.state.code}`)    
         }
         else if (event.key === 'Enter' && AUTHCODE !== this.state.code) {
-            alert("something wrong with code")
+            alert("Something wrong with pass CODE")
         }
     }
 
@@ -33,7 +37,7 @@ class home extends Component {
             <div className="wrapper">
                 <div className="center code-container">
                     <h4>Enter your class code here </h4>
-                    <Input onChange={ event => this.setState({code: event.target.value})} onKeyPress={this.handleButtonClick}  value={this.state.code} className="input-code" type="text" placeholder="Enter the code here .."></Input>
+                    <Input onChange={ event => this.setState({code: event.target.value})} onKeyPress={this.handleOnKeyPress}  value={this.state.code} className="input-code" type="text" placeholder="Enter the code here .."></Input>
                         <button className="enter-btn" onClick={this.handleButtonClick}  >Enter</button>
                 </div>
             </div>
