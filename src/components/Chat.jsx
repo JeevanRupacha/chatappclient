@@ -69,9 +69,11 @@ const Chat = () => {
         
         })
 
-        socket.on('message', (message) => {
-            setMessages((messages) => [...messages, { messageType: "leave-msg",messageContent:'' }])
-        })
+
+        /* I remove because the annoying leave message without actual leave of user */
+        // socket.on('message', (message) => {
+        //     setMessages((messages) => [...messages, { messageType: "leave-msg",messageContent:'' }])
+        // })
         
     },[])
 
