@@ -1,3 +1,6 @@
+live at https://hackher.netlify.app/
+pass code is HacHerHAck
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
