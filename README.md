@@ -1,5 +1,5 @@
 live at https://hackher.netlify.app/
-pass code is HacHerHAck
+pass code is HacHerHack
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
